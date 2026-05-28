@@ -6,6 +6,9 @@
     <title>BOM</title>
   </head>
   <body>
+    <div
+      style="background-color: aqua; height: 1000vh; border: 10px dashed black"
+    ></div>
     <script>
       console.log("this", this);
       // 현재 스코프 범위를 감싸고 있는 객체.
@@ -32,7 +35,20 @@
       );
       // timeout과 구조는 같은데 1번으로 멈추지 않고 계속 실행
       setInterval(() => console.log("setInterval"), 1000);
-      
+      // window
+      // 브라우저 다른 정보 값들 보여주는 부분, 개발자도구 등을 빼고 순수하게 보여지는 곳
+      console.log(window.innerWidth);
+      console.log(window.innerHeight);
+      console.log(window.outerWidth);
+      console.log(window.outerHeight);
+      // scroll 관련된 것도 있음
+      console.log(window.scrollX);
+      console.log(window.scrollY);
+      //   scrollTo : 절대 위치 - 스크롤 좌표를 대입
+      //   setInterval(() => scrollTo(scrollX, scrollY + 50), 1000);
+      // scrollBy : 상대 위치 -> 지금 위치에서 +x, +y만큼 (밑으로, 오른쪽으로 가는게 각각 x+, y+)
+      setInterval(() => scrollBy(0, 50), 1000);
+      //   https://developer.mozilla.org/ko/docs/Web/API/Window/scroll
     </script>
   </body>
 </html>
