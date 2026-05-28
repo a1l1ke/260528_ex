@@ -6,6 +6,7 @@
     <title>스토리지, 클립보드</title>
   </head>
   <body>
+    <button id="copy">복사</button>
     <script>
       // localStorage. sessionStorage
       //   sessionStorage.setItem("counter", 0)
@@ -45,6 +46,13 @@
       console.log(localStorage.getItem("aa"));
       console.log(localStorage.getItem("aa2"));
       console.log(JSON.parse(localStorage.getItem("aa2")));
+      // ...
+      document.querySelector("#copy").addEventListener("click", async () => {
+        // 복사된 데이터가 임시 존재하는 메모리 공간 => 클립보드
+        console.log(`기존 데이터 : ${await navigator.clipboard.readText()}`);
+        console.log("부자가 되는 방법이 복사가 되었습니다");
+        navigator.clipboard.writeText("부자가 되는 방법");
+      });
     </script>
   </body>
 </html>
