@@ -5,5 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BOM</title>
   </head>
-  <body></body>
+  <body>
+    <script>
+      console.log("this", this);
+      // 현재 스코프 범위를 감싸고 있는 객체.
+      console.log("globalThis", globalThis); // 명시적 전역객체
+      function f1() {
+        console.log("f1", this);
+      }
+      const f2 = function () {
+        console.log("f2", this);
+      };
+      const f3 = () => {
+        console.log("f3", this);
+      };
+      f1();
+      f2();
+      f3();
+      //   window.console
+      window.f1();
+      setTimeout(
+        () => console.log("setTimeout"),
+        // 함수
+        1000,
+        // 몇 초 뒤 이 함수를 실행할 것인가 (ms, 1/1000초)
+      );
+      // timeout과 구조는 같은데 1번으로 멈추지 않고 계속 실행
+      setInterval(() => console.log("setInterval"), 1000);
+      
+    </script>
+  </body>
 </html>
